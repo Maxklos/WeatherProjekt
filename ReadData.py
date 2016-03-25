@@ -1,7 +1,7 @@
 #read data from a BME280 Sensor and write it into a LOG<date>.txt file
 #
 #author Benjamin Koderisch
-#version 1.0 25.03.16
+#version 1.1 25.03.16
 
 from time import *
 import time
@@ -10,12 +10,13 @@ import os
 
 sensor = BME280(mode=BME280_OSAMPLE_8)
 
-temp = sensor.read_temperature()
-pascals = sensor.read_pressure()
-press = pascals / 100
-hum = sensor.read_humidity()
-
 def writeDATA():
+
+        temp = sensor.read_temperature()
+        pascals = sensor.read_pressure()
+        press = pascals / 100
+        hum = sensor.read_humidity()
+
         #write year, month and day in the title
 	f = open('LOG' + strftime("%Y%m%d", time.localtime()) + '.txt', 'a')
 	if os.stat('LOG' + strftime("%Y%m%d", time.localtime()) + '.txt').st_size == 0:
