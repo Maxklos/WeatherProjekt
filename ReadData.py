@@ -18,7 +18,7 @@ def writeDATA():
         #write year, month and day in the title
 	f = open('LOG' + strftime("%Y%m%d", time.localtime())'.txt', 'a')
 	f.write(time.strftime("%Y%m%d%H%M%S", time.localtime()) + '\n' + 
-                'TEMP ' + temp + ' | PRESS ' + press + ' | HUM ' + hum + '\n')
+                'TEMP {0:0} | PRESS {} | HUM {} \n'.format(temp, press, hum))
 	f.close()
 
 	
