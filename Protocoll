@@ -1,0 +1,10 @@
+order of communication:
+
+--installation  (1. time)--
+local time + date
+DATA names Humidity,Air_Pressure, Temperature
+
+-- for every Data set --
+local time + date
+Data in order of the given names
+confirmation of acceptance
