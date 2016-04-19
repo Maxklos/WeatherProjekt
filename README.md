@@ -4,9 +4,9 @@ Reading Sensor data with a Raspberry Pi Zero and uploading this data on a server
 
 ##Team
 
-Analysis: Christopher Kossatz
-Hardware: Nikolaus Herzog
-Software: Benjamin Koderisch
+- Analysis: Christopher Kossatz
+- Hardware: Nikolaus Herzog
+- Software: Benjamin Koderisch
 
 ##Setup:
 
@@ -17,5 +17,5 @@ cd WeatherProjekt
 sudo python setup.py install
 ```
 
--We are working on optimising this setup
--We are using the Adafruit Python GPIO Library
+- We are working on optimising this setup
+- We are using the Adafruit Python GPIO Library
