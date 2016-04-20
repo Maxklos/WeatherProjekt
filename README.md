@@ -19,7 +19,6 @@ git clone https://github.com/Maxklos/WeatherProjekt.git
 cd WeatherProjekt/Client
 sudo python setup.py install
 sudo python ReadData.py
-sudo python client.py
 ```
 ##Server
 
