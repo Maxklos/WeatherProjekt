@@ -5,7 +5,7 @@ The Transmission is done via a TCP Socket between the Raspberry Pi Zero and anot
 
 ##Team
 
-- Analysis: Christopher Kossatz
+- Analysis/Network: Christopher Kossatz
 - Hardware: Nikolaus Herzog
 - Software: Benjamin Koderisch
 
