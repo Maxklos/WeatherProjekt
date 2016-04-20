@@ -16,7 +16,7 @@ The Transmission is done via a TCP Socket between the Raspberry Pi Zero and anot
 ```
 sudo apt-get update
 git clone https://github.com/Maxklos/WeatherProjekt.git
-cd WeatherProjekt
+cd WeatherProjekt/Client
 sudo python setup.py install
 sudo python ReadData.py
 sudo python client.py
@@ -25,6 +25,8 @@ sudo python client.py
 
 ```
 sudo apt-get update
+git clone https://github.com/Maxklos/WeatherProjekt.git
+cd WeatherProjekt/Server
 sudo python server.py
 
 ```
