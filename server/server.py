@@ -1,6 +1,6 @@
 #Server program
 #by Christopher Kossatz
-#0.1 21.04.16
+#0.2 21.04.16
 
 
 import socket
