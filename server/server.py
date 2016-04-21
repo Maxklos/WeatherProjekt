@@ -57,9 +57,12 @@ def clientthread(conn):
     #print head[-1]    # could be used to select table in database
     del head[-1]
 
-    #fetch witch are already present
-    sqc.execute('PRAGMA table_info(pi)')
-    d = sqc.fetchall()
+    #fetch witch columns are already present
+    try:
+        sqc.execute('PRAGMA table_info(pi)')
+        d = sqc.fetchall()
+    except:
+        print "Couldn't fetch Data from db"
     present_columns = []
 
     for i in d:
@@ -100,8 +103,7 @@ def clientthread(conn):
                 sqc.execute("UPDATE pi set {} = {} WHERE time = {}".format(cell[0],cell[1],t))
                 sqconn.commit()
     except:
-        print 'Database is probably locked. PLeas close all other programms that might interfere with the db!'
-
+        print 'Database is probably locked. PLease close all other programms that might interfere with the db!'
 
     sqconn.close()
     conn.close()
@@ -113,6 +115,9 @@ for i in range(2):
     print 'Connected with ' + addr[0] + ':' + str(addr[1])
 
     #start new thread
-    start_new_thread(clientthread ,(conn,))
+    try:
+        start_new_thread(clientthread ,(conn,))
+    except:
+        print "Couldn't start Thread"
 
 s.close()

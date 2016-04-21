@@ -19,17 +19,19 @@ import struct
 #sensor = BME280(mode=BME280_OSAMPLE_8)
 
 def writeDATA(s):
-
+    try:
         #temp = sensor.read_temperature()
         #pascals = sensor.read_pressure()
         #press = pascals / 100
         #hum = sensor.read_humidity()
-        hum = 50
-        press = 1000
-        temp = 85.3
+    except:
+        print 'Sensor Error. Please try again.'
+    hum = 50
+    press = 1000
+    temp = 85.3
 
-        t = time.strftime("%Y%m%d%H%M%S", time.localtime())
-        sendData(s,t, humidity = hum , pressure = press, temperature=temp)
+    t = time.strftime("%Y%m%d%H%M%S", time.localtime())
+    sendData(s,t, humidity = hum , pressure = press, temperature=temp)
 
 #input ip
 host = "192.168.2.111"
@@ -66,8 +68,5 @@ except socket.error:
     #Send failed
     print 'Send failed'
     sys.exit()
-
-#get reply and print
-#print recv_timeout(s)
 
 s.close()
