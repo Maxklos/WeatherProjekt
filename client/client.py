@@ -1,13 +1,18 @@
-def installData(s,n =[]):
+import time
+
+def installData(s,idpi,n =[]):
     #check if all names are valid
-    s.send(str(dnames))
+    c=''
+    for i in n:
+        c = c + str(i) + '-'
+    s.send(c+idpi)
 
 def sendData(s,t, **kwargs):
     #print kwargs
     #print '--------------------------'
-    s.send("time:{}".format(t))
+    s.send("time:{}\n".format(t))
     for i in kwargs:
-        s.send("{}:{}".format(i,kwargs[i]))
+        s.send("{}:{}\n".format(i,kwargs[i]))
 
 def recv_timeout(the_socket,timeout=2):     #doesn't work stable at all
     #make socket non blocking

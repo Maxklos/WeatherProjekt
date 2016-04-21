@@ -1,7 +1,9 @@
 #read data from a BME280 Sensor and write it into a LOG<date>.txt file
 #
 #author Benjamin Koderisch and Christopher Kossatz
-#version 1.2 19.04.2016
+#version 1.3 21.04.2016
+
+idpi = '0001'
 
 from time import *
 import time
@@ -54,7 +56,7 @@ print 'Socket Connected to ' + host + ' on ip ' + remote_ip
 
 try :
     #Set the whole string
-    installData(s,["humidity","temperature","pressure"])
+    installData(s,idpi,["humidity","temperature","pressure"])
 
     for i in range(5):
     	writeDATA(s)
