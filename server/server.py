@@ -1,11 +1,11 @@
 #Server program
 #by Christopher Kossatz
-#0.2 21.04.16
+#0.2.5 21.04.16
 
 
 import socket
 import sys
-from thread import *
+from threading import Thread
 import sqlite3
 
 HOST = '192.168.2.111'
@@ -25,9 +25,8 @@ print 'Socket bind complete'
 s.listen(10)
 print 'Socket now listening'
 
-allData = []
-
 def clientthread(conn):
+    allData = []
     #Sending message to connected client
     #conn.send('1')
 
@@ -42,6 +41,8 @@ def clientthread(conn):
         allData.append(filter(None, data.split('\n')))
 
         #conn.send(reply)
+
+    print 'Ready with part one'
 
     try:
         sqconn = sqlite3.connect('WeatherProject.db')
@@ -83,7 +84,6 @@ def clientthread(conn):
     i = 0
 
     for row in allData:
-
         for cell in row:
             cell = cell.split(':')
             if ((cell[0] == 'time') & (len(r) == 0)) | ((i <= len(head)) & (cell[0] != 'time')):
@@ -116,7 +116,7 @@ for i in range(2):
 
     #start new thread
     try:
-        start_new_thread(clientthread ,(conn,))
+        t = Thread(target = clientthread ,args = (conn,)).start()
     except:
         print "Couldn't start Thread"
 
