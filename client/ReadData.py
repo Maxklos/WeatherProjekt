@@ -16,25 +16,28 @@ import socket
 import sys
 import struct
 
-#sensor = BME280(mode=BME280_OSAMPLE_8)
+sensor = BME280(mode=BME280_OSAMPLE_8)
 
 def writeDATA(s):
     try:
-        #temp = sensor.read_temperature()
-        #pascals = sensor.read_pressure()
-        #press = pascals / 100
-        #hum = sensor.read_humidity()
+        temp = sensor.read_temperature()
+        pascals = sensor.read_pressure()
+        press = pascals / 100
+        hum = sensor.read_humidity()
     except:
         print 'Sensor Error. Please try again.'
-    hum = 50
-    press = 1000
-    temp = 85.3
+    #hum = 50
+    #press = 1000
+    #temp = 85.3
+    print str(temp)
+    print str(press)
+    print str(hum)
 
     t = time.strftime("%Y%m%d%H%M%S", time.localtime())
     sendData(s,t, humidity = hum , pressure = press, temperature=temp)
 
 #input ip
-host = "192.168.2.111"
+host = "192.168.1.191"
 port = 8888
 
 #create an INET, STREAMing socket
@@ -63,7 +66,7 @@ try :
     for i in range(5):
     	writeDATA(s)
     	#900 = 15 min
-    	time.sleep(2)
+    	time.sleep(20)
 except socket.error:
     #Send failed
     print 'Send failed'

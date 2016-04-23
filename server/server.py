@@ -8,7 +8,7 @@ import sys
 from threading import Thread
 import sqlite3
 
-HOST = '192.168.2.111'
+HOST = '192.168.1.191'
 PORT = 8888
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,7 +31,7 @@ def clientthread(conn):
     #conn.send('1')
 
     #infinite loop so that function do not terminate and thread do not end.
-    for i in range(9):
+    for i in range(17):
 
         #Receiving from client
         data = conn.recv(1024)
@@ -39,7 +39,7 @@ def clientthread(conn):
         if not data:
             break
         allData.append(filter(None, data.split('\n')))
-
+        print data
         #conn.send(reply)
 
     print 'Ready with part one'
@@ -55,7 +55,7 @@ def clientthread(conn):
     #fetch all Column Names
     head = allData[0][0].split('-')
     del allData[0]
-    #print head[-1]    # could be used to select table in database
+    print head[-1]    # could be used to select table in database
     del head[-1]
 
     #fetch witch columns are already present
