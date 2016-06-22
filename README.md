@@ -1,5 +1,7 @@
 # WeatherProjekt
 
+[![Join the chat at https://gitter.im/Maxklos/WeatherProjekt](https://badges.gitter.im/Maxklos/WeatherProjekt.svg)](https://gitter.im/Maxklos/WeatherProjekt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Reading Sensor data with a Raspberry Pi Zero and transmitting this data on a server to further analysis.
 The Transmission is done via a TCP Socket between the Raspberry Pi Zero and another Linux Machine (Most likely a Raspberry Pi 3) in the same LAN.
 
