@@ -1,3 +1,9 @@
+---
+
+# Projekt is Archived since 18.10.2023
+
+---
+
 # WeatherProjekt
 
 Reading Sensor data with a Raspberry Pi Zero and transmitting this data on a server to further analysis.
