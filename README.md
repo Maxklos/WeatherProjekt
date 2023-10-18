@@ -9,15 +9,15 @@
 Reading Sensor data with a Raspberry Pi Zero and transmitting this data on a server to further analysis.
 The Transmission is done via a TCP Socket between the Raspberry Pi Zero and another Linux Machine (Most likely a Raspberry Pi 3) in the same LAN.
 
-##Team
+### Team
 
 - Analysis/Network: Christopher Kossatz
 - Hardware: Nikolaus Herzog
 - Software: Benjamin Koderisch
 
-#Setup:
+## Setup:
 
-##Client
+### Client
 Connect the Sensor to
 SDA -> Pin 3
 SCLK -> Pin 5
@@ -41,7 +41,7 @@ cd WeatherProjekt/Client
 sudo python setup.py install
 sudo python ReadData.py
 ```
-##Server
+### Server
 
 ```
 sudo apt-get update
